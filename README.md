@@ -2,7 +2,7 @@
 An custom group field to create dynamically inline data.
 
 ## Contact me?
-Let disscussion with me,
+Let discussion with me,
 - Email: [garrylaly@gmail.com](mailto:garrylaly@gmail.com)
 - Twitter: [@GarryLaly](https://twitter.com/GarryLaly)
 
