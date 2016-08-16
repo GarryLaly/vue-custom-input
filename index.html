@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Vue Custom Input</title>
+	<link rel="stylesheet" type="text/css" href="mincss.css">
+</head>
+<body>
+	<form method="GET" id="app">
+		<table>
+			<tr>
+				<td>
+					<select name="student" v-model="student">
+						<option value="Student A">Student A</option>
+						<option value="Student B">Student B</option>
+						<option value="Student C">Student C</option>
+					</select>
+				</td>
+				<td>
+					<button type="button" class="btn btn-b btn-sm smooth" v-on:click="optionClick">Select</button>
+				</td>
+			</tr>
+		</table>
+		<ul v-show="listStatus" style="display: none;">
+			<li v-for="item in list" style="margin-bottom: 5px;">
+				<input type="text" name="student_id[]" v-model="item.student_id" readonly>
+				<input type="text" name="fullname[]" v-model="item.fullname" placeholder="What's your name?">
+				<input type="email" name="email[]" v-model="item.email" placeholder="Your email">
+				<input type="number" name="age[]" v-model="item.age" min="17" placeholder="Your age today">
+			</li>
+		</ul>
+		<br>
+		<br>
+		<button type="submit" class="btn btn-a btn-sm smooth">Save</button>
+	</form>
+	
+	<script type="text/javascript" src="vue.js"></script>
+	<script>
+		new Vue({
+		    el: '#app',
+		    data: {
+		        student: 'Student A',
+		        list: [],
+		    },
+		    computed: {
+			    listStatus: function () {
+			      return (this.list.length > 0) ? true : false; 
+			    }
+			},
+		    methods: {
+		    	optionClick: function() {
+		    		this.list.push({
+		    			student_id: this.student,
+		    			fullname: '',
+		    			email: '',
+		    			age: 17,
+		    		});
+		    	}
+		    }
+		})
+	</script>
+</body>
+</html>
